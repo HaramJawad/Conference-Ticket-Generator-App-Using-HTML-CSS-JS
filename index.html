@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conference Ticket Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Inconsolata:wght@200..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="ticketContainer">
+        <img class="image" id="patternLinesImage" src="assets/images/pattern-lines.svg" alt="pattern-lines" />
+        <img class="image" id="firstPatternCircleImage" src="assets/images/pattern-circle.svg"
+            alt="first-pattern-circle" />
+        <img class="image" id="secondPatternCircleImage" src="assets/images/pattern-circle.svg"
+            alt="second-pattern-circle" />
+        <img class="image" id="patternSquigglyLineBottomImage"
+            src="assets/images/pattern-squiggly-line-bottom-desktop.svg" alt="pattern-squiggly-line-bottom" />
+        <img class="image" id="patternSquigglyLineTopImage" src="assets/images/pattern-squiggly-line-top.svg"
+            alt="pattern-squiggly-line-top" />
+        <div class="header">
+            <img src="assets/images/logo-full.svg" alt="logo">
+        </div>
+        <div class="hero-section">
+            <h1 id="hero-section-heading">Your Journey to Coding Conf 2025 Starts Here!</h1>
+            <p id="hero-section-paragraph">Secure your spot at next year's biggest coding conference.</p>
+        </div>
+        <div class="main-section">
+            <form id="registeration-form">
+                <div>
+                    <label for="photoUpload">Upload Avatar</label>
+                </div>
+                <div id="upload-photo">
+                    <input type="file" id="photoUpload" name="photo" accept="image/*" />
+                    <div class="custom-content">
+                        <img src="assets/images/icon-upload.svg" alt="logo-mark">
+                        <span>Drag and drop or click to upload</span>
+                    </div>
+                    <div class="preview-area" id="previewArea">
+                        <div>
+                            <img id="previewImage" alt="Preview">
+                        </div>
+                        <div class="actions">
+                            <button id="removeBtn">Remove Image</button>
+                            <button id="changeBtn">Change Image</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="error" id="image-error-msg">
+                </div>
+                <div>
+                    <label class="full-name" for="full-name">Full Name</label>
+                </div>
+                <div class="name">
+                    <input type="text" id="full-name" />
+                </div>
+                <div class="error" id="full-name-error-msg">
+                </div>
+                <div>
+                    <label class="email-address" for="email-address">Email Address</label>
+                </div>
+                <div class="email">
+                    <input type="email" id="email-address" />
+                </div>
+                <div class="error" id="email-error-msg">
+                </div>
+                <div>
+                    <label class="github-username" for="github-username">GitHub Username</label>
+                </div>
+                <div class="githubUsername">
+                    <input type="text" id="github-username" />
+                </div>
+                <div class="error" id="githubUsername-error-msg"> </div>
+                <button id="submit-form-button" type="submit">Generate My Ticket</button>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
