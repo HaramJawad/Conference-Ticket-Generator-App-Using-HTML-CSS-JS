@@ -126,13 +126,23 @@ function displayingticketReady() {
     heroSectionHeading.innerHTML = `Congrats, <span class="highlight-name">${fullName.value}</span>! Your ticket is ready.`;
     heroSectionParagraph.innerHTML = `We've emailed your ticket to <span class="highlight-email">${email.value}</span> and will send updates in the run to the event.`;
     // remove the form from mainContainer
-    registerationForm.style.display = "none"
+
+   registerationForm.classList.add("fade-out");
+
+setTimeout(() => {
+  registerationForm.style.display = "none";
+}, 400);
     const ticketCard = document.createElement('img')
     ticketCard.src = "assets/images/pattern-ticket.svg"
     ticketCard.alt = "pattern-ticket"
     // add class ticket-card to ticketCard
     ticketCard.classList.add("ticket-card")
     mainSection.appendChild(ticketCard)
+
+    /* trigger animation */
+requestAnimationFrame(() => {
+    ticketCard.classList.add("show");
+  });
     displayinglogoDateCity()
     displayingProfileNameEmail()
     displayingTicketNumber()
@@ -171,6 +181,10 @@ function displayinglogoDateCity() {
             dateParagraph.appendChild(unknownLocation)
         });
     mainSection.appendChild(newContainer)
+
+    setTimeout(() => {
+        newContainer.classList.add("show");
+      }, 200);
 }
 function displayingProfileNameEmail() {
     const secNewContainer = document.createElement('div')
@@ -196,6 +210,10 @@ function displayingProfileNameEmail() {
     userNameEmailDiv.appendChild(userEmail)
     secNewContainer.appendChild(userNameEmailDiv)
     mainSection.appendChild(secNewContainer)
+
+    setTimeout(() => {
+        secNewContainer.classList.add("show");
+      }, 350);
 }
 // for generating random ticket number 
 function generateTicketNumber() {
@@ -212,4 +230,8 @@ function displayingTicketNumber() {
     ticketNumber.textContent = generateTicketNumber()
     ticketNumberContainer.appendChild(ticketNumber)
     mainSection.appendChild(ticketNumberContainer)
+
+    setTimeout(() => {
+        ticketNumberContainer.classList.add("show");
+      }, 500);
 }
