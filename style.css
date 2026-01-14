@@ -246,27 +246,31 @@ input:focus {
 }
 
 .ticket-card {
-    position: relative;
     width: 100%;
-    max-width: 100%;
-    margin: 2rem auto;
-    overflow: hidden;
+    max-width: 500px;
+    aspect-ratio: 3 / 1.4;
+    /* keeps ticket shape */
+    object-fit: contain;
+}
+
+.main-section {
+    position: relative;
 }
 
 .new-container {
     position: absolute;
     top: 25%;
     left: 10%;
-    width: 60%;
+    margin: 0 auto;
+    width: 75%;
 }
 
 .sec-new-container {
     display: flex;
     gap: 1rem;
     position: absolute;
-    bottom: 25%;
+    bottom: 15%;
     left: 10%;
-    width: 80%;
 }
 
 .profile-img-div {
@@ -291,7 +295,6 @@ input:focus {
     right: 10%;
     bottom: 25%;
     width: 10%;
-    /* rotates the container */
     transform: translateY(-50%) rotate(180deg);
 }
 
@@ -305,6 +308,46 @@ input:focus {
     color: #9b9b9e
 }
 
+
+/* ===== ANIMATION STATES ===== */
+
+
+.fade-out {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.ticket-card {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.ticket-card.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.new-container,
+.sec-new-container,
+.ticket-number-container {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 @media (min-width:1200px) {
     .hero-section {
         max-width: 500px
@@ -313,17 +356,20 @@ input:focus {
     .main-section {
         max-width: 500px
     }
+
+}
+
+@media (max-width: 1200px) {
+    .ticket-card {
+        max-width: 100%;
+    }
+
+    .new-container {
+        top: 13%
+    }
 }
 
 @media (max-width: 1000px) {
-
-    /*  Make the container background adjust nicely */
-    .ticketContainer {
-        background-image: url("assets/images/background-mobile.png");
-        background-size: cover;
-        background-position: center;
-        overflow: hidden;
-    }
 
     #patternLinesImage {
         width: 100%;
@@ -365,7 +411,6 @@ input:focus {
 
     /*  Adjust text and form width for mobile */
     .hero-section,
-    .main-section,
     .header {
         max-width: 90%;
         margin: 2rem auto;
@@ -380,6 +425,19 @@ input:focus {
         font-size: 1rem;
     }
 
+    .main-section {
+        max-width: 50%;
+    }
+
+    .ticket-number-container {
+        bottom: 20%
+    }
+}
+
+@media (max-width: 700px) {
+    .main-section {
+        max-width: 85%;
+    }
 }
 
 @media (max-width: 500px) {
@@ -391,6 +449,7 @@ input:focus {
         opacity: 0.4;
         transform: scale(0.9);
     }
+
 }
 
 @media (max-width: 400px) {
@@ -398,5 +457,30 @@ input:focus {
         max-width: 100%;
         margin: 2rem auto;
         text-align: center;
+    }
+
+    .ticket-card {
+        max-width: 100%;
+    }
+
+    .ticket-number {
+        font-size: 0.7rem;
+    }
+
+    .new-container {
+        left: 7%;
+        width: 80%
+    }
+
+    .sec-new-container {
+        flex-wrap: wrap
+    }
+
+    .sec-new-container h3 {
+        font-size: 0.75rem;
+    }
+
+    .profile-img {
+        width: 80%
     }
 }
